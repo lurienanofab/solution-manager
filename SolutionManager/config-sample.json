@@ -1,0 +1,51 @@
+﻿{
+  "msbuildPath": "c:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin",
+  "solutionBasePath": "c:\\path\\to\\solutions",
+  "backups": [
+      {"name": "webserver1", "source": "\\\\webserver1\\c$\\web", "destination": "\\\\webserver1\\c$\\backup"},
+      {"name": "webserver2", "source": "\\\\webserver2\\c$\\web", "destination": "\\\\webserver2\\c$\\backup"}
+  ],
+  "tests": [
+      {
+          "name": "test-api",
+          "type": "api",
+          "baseUrl": "https://api.hostname.com",
+          "basicAuthUsername": "<basic-auth-username>",
+          "basicAuthPassword": "<basic-auth-password>"
+      },
+      {
+          "name": "test-web",
+          "type": "web",
+          "baseUrl": "https://www.hostname.com",
+          "formsAuthCookieName": "<forms-auth-cookie-name>",
+          "formsAuthCookieValue": "<forms-auth-cookie-value>",
+          "formsAuthCookieDomain": ".hostname.com"
+      }
+  ],
+  "solutions": [
+      {
+          "solution": {"name": "SampleLib"},
+          "git": {"enabled": true},
+          "build": {"enabled": true},
+          "backup": {"enabled": false},
+          "publish": {"enabled": false},
+          "test": {"enabled": false}
+      },
+      {
+          "solution": {"name": "Sample.WebApi"},
+          "git": {"enabled": true},
+          "build": {"enabled": true},
+          "backup": {"enabled": true, "name": "webserver1"},
+          "publish": {"enabled": true, "profile": "<profile-name>", "configuration": "Release"},
+          "test": {"enabled": true, "name": "api-test", "path": "path/to/test"}
+      },
+      {
+          "solution": {"name": "Sample.WebApp"},
+          "git": {"enabled": true},
+          "build": {"enabled": true},
+          "backup": {"enabled": true, "name": "webserver2"},
+          "publish": {"enabled": true, "profile": "<profile-name>", "configuration": "Release"},
+          "test": {"enabled": true, "name": "web-test", "path": "path/to/test"}
+      }
+  ]
+}

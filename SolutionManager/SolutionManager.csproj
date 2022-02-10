@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+    <PackageReference Include="CommandLineParser" Version="2.8.0"/>
+    <PackageReference Include="SimpleExec" Version="8.0.0"/>
+    <PackageReference Include="LibGit2Sharp" Version="0.26.2"/>
+    <PackageReference Include="RestSharp" Version="107.2.1"/>
+  </ItemGroup>
+</Project>
